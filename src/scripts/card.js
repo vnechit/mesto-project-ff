@@ -1,7 +1,5 @@
-import { openModal } from "./modal";
-
 //  Функция создания карточки
-function createCard (card, deleteCardFunc, cardTemplate, likeCardFunc, openModalFunc) {
+function createCard (card, deleteCardFunc, cardTemplate, likeCardFunc, onOpenImagePopup) {
     const clonedCard = cardTemplate.querySelector('.places__item').cloneNode(true);
     clonedCard.querySelector('.card__title').textContent = card.name;
     const image = clonedCard.querySelector('.card__image');
@@ -14,13 +12,7 @@ function createCard (card, deleteCardFunc, cardTemplate, likeCardFunc, openModal
         likeCardFunc(event);
     });
     image.addEventListener('click', (event) => {
-        const imagePopUp = document.querySelector('.popup_type_image');
-        const photoDescription = imagePopUp.querySelector('.popup__caption');
-        const imageURL = imagePopUp.querySelector('.popup__image');
-        imageURL.src = image.src;
-        imageURL.alt = image.alt;
-        photoDescription.textContent = image.alt;
-        openModalFunc(imagePopUp);
+        onOpenImagePopup({description: image.alt, link: image.src});
     });
     return clonedCard;
 }

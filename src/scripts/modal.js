@@ -8,7 +8,7 @@ function openModal (popup) {
 // Функция закрытия модального окна
 function closeModal (event) {
     // debugger;
-    if (event.type === 'keydown' && event.keyCode === 27) {
+    if (event.type === 'keydown' && event.key === 'Escape') {
         const opennedPopUp = document.querySelector('.popup_is-opened');
         closeModalAdditional(opennedPopUp);
     } else if (event.target.classList.contains('popup')) {
