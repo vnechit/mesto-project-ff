@@ -14,6 +14,11 @@
   margin-bottom: 0;
 }
 
+.popup__input-error {
+  border: none;
+  border-bottom: 1px solid #FF0000;
+}
+
 @media screen and (max-width: 568px) {
   .popup__title {
     font-size: 12px;

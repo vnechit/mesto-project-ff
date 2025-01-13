@@ -95,7 +95,6 @@ function handleAddFormSubmit (event) {
         const createdCard = createCard(res, deleteCard, cardTemplate, likeCard, onOpenImagePopup, me._id, api.putLike, api.deleteLike, api.deleteCard);
         placesList.prepend(createdCard);
     }).finally(()=>{renderLoading(button, false);});
-    // renderLoading(false);
     formAddNewCard.reset();
 }
 
