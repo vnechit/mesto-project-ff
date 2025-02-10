@@ -1,7 +1,7 @@
 const config = {
-  baseUrl: "https://nomoreparties.co/v1/wff-cohort-29",
+  baseUrl: "https://nomoreparties.co/v1/wff-cohort-31",
   headers: {
-    authorization: "457c7cb3-03d4-462d-95e1-1c30b23f8c49",
+    authorization: "3a402874-8643-406a-98ae-8472194fa47e",
     "Content-Type": "application/json",
   },
 };
@@ -16,7 +16,7 @@ export const getInitialCards = async () => {
       }
       return Promise.reject(`Ошибка: ${res.status}`);
     })
-    .then((res) => {      
+    .then((res) => {
       return res;
     })
     .catch((err) => {
@@ -34,7 +34,7 @@ export const getMyInfo = async () => {
       }
       return Promise.reject(`Ошибка: ${res.status}`);
     })
-    .then((res) => {      
+    .then((res) => {
       return res;
     })
     .catch((err) => {
@@ -44,7 +44,7 @@ export const getMyInfo = async () => {
 
 export const putLike = async (cardId) => {
   return await fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
-    method: 'PUT',
+    method: "PUT",
     headers: config.headers,
   })
     .then((res) => {
@@ -53,7 +53,7 @@ export const putLike = async (cardId) => {
       }
       return Promise.reject(`Ошибка: ${res.status}`);
     })
-    .then((res) => {      
+    .then((res) => {
       return res.likes;
     })
     .catch((err) => {
@@ -63,7 +63,7 @@ export const putLike = async (cardId) => {
 
 export const deleteLike = async (cardId) => {
   return await fetch(`${config.baseUrl}/cards/likes/${cardId}`, {
-    method: 'DELETE',
+    method: "DELETE",
     headers: config.headers,
   })
     .then((res) => {
@@ -72,7 +72,7 @@ export const deleteLike = async (cardId) => {
       }
       return Promise.reject(`Ошибка: ${res.status}`);
     })
-    .then((res) => {      
+    .then((res) => {
       return res.likes;
     })
     .catch((err) => {
@@ -80,18 +80,19 @@ export const deleteLike = async (cardId) => {
     });
 };
 
-export const createCard = async (card) => {  
+export const createCard = async (card) => {
   return await fetch(`${config.baseUrl}/cards`, {
-    method: 'POST',
+    method: "POST",
     headers: config.headers,
-    body: JSON.stringify(card)})
+    body: JSON.stringify(card),
+  })
     .then((res) => {
       if (res.ok) {
         return res.json();
       }
       return Promise.reject(`Ошибка: ${res.status}`);
     })
-    .then((res) => {      
+    .then((res) => {
       return res;
     })
     .catch((err) => {
@@ -101,8 +102,8 @@ export const createCard = async (card) => {
 
 export const deleteCard = async (card) => {
   return await fetch(`${config.baseUrl}/cards/${card}`, {
-    method: 'DELETE',
-    headers: config.headers
+    method: "DELETE",
+    headers: config.headers,
   })
     .then((res) => {
       if (res.ok) {
@@ -110,7 +111,7 @@ export const deleteCard = async (card) => {
       }
       return Promise.reject(`Ошибка: ${res.status}`);
     })
-    .then((res) => {      
+    .then((res) => {
       return res;
     })
     .catch((err) => {
@@ -120,9 +121,9 @@ export const deleteCard = async (card) => {
 
 export const editProfile = async (data) => {
   return await fetch(`${config.baseUrl}/users/me `, {
-    method: 'PATCH',
+    method: "PATCH",
     headers: config.headers,
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   })
     .then((res) => {
       if (res.ok) {
@@ -130,7 +131,7 @@ export const editProfile = async (data) => {
       }
       return Promise.reject(`Ошибка: ${res.status}`);
     })
-    .then((res) => {      
+    .then((res) => {
       return res;
     })
     .catch((err) => {
@@ -140,9 +141,9 @@ export const editProfile = async (data) => {
 
 export const editAvatar = async (data) => {
   return await fetch(`${config.baseUrl}/users/me/avatar `, {
-    method: 'PATCH',
+    method: "PATCH",
     headers: config.headers,
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   })
     .then((res) => {
       if (res.ok) {
@@ -150,7 +151,7 @@ export const editAvatar = async (data) => {
       }
       return Promise.reject(`Ошибка: ${res.status}`);
     })
-    .then((res) => {      
+    .then((res) => {
       return res;
     })
     .catch((err) => {
